@@ -8,16 +8,16 @@
 class Log {
 
 
-static File log= new File("/log.maid");
+    static File log = new File("/log.maid");
 
 
-    static void main(agrs){
+    static void main(agrs) {
 
     }
 
 
 
-    static writeLog(String logstr){
-        log<<logstr<<"\n"
+    static writeLog(String logstr) {
+        log << logstr << "\n"
     }
 }
