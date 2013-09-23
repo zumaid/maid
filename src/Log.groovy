@@ -14,9 +14,6 @@ static File log= new File("/log.maid");
     static void main(agrs){
 
     }
-
-
-
     static writeLog(String logstr){
         log<<logstr<<"\n"
     }
