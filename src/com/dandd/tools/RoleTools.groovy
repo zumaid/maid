@@ -1,13 +1,19 @@
+package com.dandd.tools
+
 /**
  * Created with IntelliJ IDEA.
  * User: xuping
  * Date: 13-9-22
- * Time: 下午3:18
+ * Time: 下午8:33
  * To change this template use File | Settings | File Templates.
  */
-import com.google.common.base.Strings
+class RoleTools {
 
-println("hello world")
+    static main(agrs){
+        println("1")
+    }
 
-def a = "";
-println(Strings.isNullOrEmpty(a))
+
+
+
+}

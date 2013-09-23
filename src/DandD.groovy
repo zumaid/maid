@@ -7,21 +7,17 @@
  */
 class DandD {
 
-    static int redomNumber(int num){
-        Random r=new Random();
-        return  r.nextInt(num)+1
+    static int redomNumber(int num) {
+        Random r = new Random();
+        return r.nextInt(num) + 1
     }
-  public   static  void main(args){
+
+    public static void main(args) {
         1000.times {
-            print (redomNumber(19)+"==")
-            Log.writeLog("========"+redomNumber(19)+"==")
+            print(redomNumber(19) + "==")
+            Log.writeLog("========" + redomNumber(19) + "==")
         }
     }
-
-
-
-
-
 
 
 }
