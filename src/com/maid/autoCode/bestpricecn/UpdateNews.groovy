@@ -29,7 +29,6 @@ class UpdateNews {
         println ("等待登陆完成")
 
 
-        rauOneByOne(  driver, "http://www.bestpricecn.com/index.php/tadmin/rule/caiji/3","明星")
         rauOneByOne(  driver, "http://www.bestpricecn.com/index.php/tadmin/rule/caiji/10","明星内衣")
         rauOneByOne(  driver, "http://www.bestpricecn.com/index.php/tadmin/rule/caiji/8","明星内衣")
         rauOneByOne(  driver, "http://www.bestpricecn.com/index.php/tadmin/rule/caiji/9","时尚资讯")
