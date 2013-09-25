@@ -45,7 +45,11 @@ class RoleTools {
         }
         return role;
     }
-
+    /**
+     * 在list随机一个值出来
+     * @param list
+     * @return
+     */
     static RandomListValue(def list){
         Random r1=new Random();
         return  list[r1.nextInt(list.size())]
