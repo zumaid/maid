@@ -8,15 +8,13 @@ package com.dandd.tools;/**
 class ReadFile {
 
     static main(args) {
-      def file=new File("e://2")
+        def file = new File("e://2")
         file.eachLine {
-            def a= (it.tokenize(" "))
-            def filename=a[1][a[1].lastIndexOf("/")+1..a[1].length()-1]
-            println a[0] + " "+a[2]+"${filename} " +a[1]
+            def a = (it.tokenize(" "))
+            def filename = a[1][a[1].lastIndexOf("/") + 1..a[1].length() - 1]
+            println a[0] + " " + a[2] + "${filename} " + a[1]
         }
     }
-
-
 
 
 }
