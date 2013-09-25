@@ -9,15 +9,23 @@ class SearchFiles {
 
     static main(args) {
 
-        new File('E:\\temp\\qic\\web').eachFile{
-            if(it.name.endsWith('.jsp')){
-                println it.name
-            }
-        }
+        searchDir("E:\\web20130926\\sedisk\\web\\projects\\qic\\apps\\gecweb")
 
     }
 
 
-
-
+    static searchDir(String dir){
+        new File(dir).eachFile{ file->
+            if(file.isFile()){
+                searchFile("${file}")
+            }else if(file.isDirectory()){
+                searchDir("${file}")
+            }else{
+                println "Uh, I'm not sure what it is..."
+            }
+        }
+    }
+    static  searchFile(String file){
+        println("${file}")
+    }
 }
