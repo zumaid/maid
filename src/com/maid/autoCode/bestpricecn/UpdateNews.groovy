@@ -16,7 +16,16 @@ class UpdateNews {
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
     static main(args) {
-        run()
+
+
+        try{
+            run()
+        }catch (Exception e){
+
+        }
+
+        sleep(1000*60*60);
+
     }
     static  void run(){
         WebDriver driver = new FirefoxDriver( );
