@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select
 class AddProduction extends MyWebDriver{
     static main(args) {
         def runall="""丝袜 美腿|,2,53,|丝袜
-时尚气质高档风衣|,2,17,|风衣
+时尚气质风衣|,2,17,|风衣
 性感秋装|,2,20,|连衣裙
 女士性感内裤蕾丝透明|,1,23,|女士内裤
 女士性感高帮鞋蕾丝|,4,38,|女士高帮鞋
@@ -48,18 +48,5 @@ class AddProduction extends MyWebDriver{
         Alert alert = driver.switchTo().alert();
         alert.accept();
 
-
-           driver.findElement(By.xpath("(//a[contains(text(),'2')])[2]")).click();
-
-           driver.findElement(By.cssSelector("td > input[type=\"checkbox\"]")).click();
-           driver.findElement(By.cssSelector("input.button-style")).click();
-           sleep(1000)
-           new Select(driver.findElement(By.xpath("//select[@id='catalog_id']"))).selectByValue(type);
-           driver.findElement(By.xpath("//button[2]")).click();
-           sleep(20000)
-           alert = driver.switchTo().alert();
-           alert.accept();
-
-        //
     }
 }
