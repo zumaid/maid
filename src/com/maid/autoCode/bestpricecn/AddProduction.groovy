@@ -30,6 +30,7 @@ class AddProduction extends MyWebDriver {
             }
             //f5(driver)
             quit(driver);
+            sleep(1000*60*60*5)
         }
     }
 
