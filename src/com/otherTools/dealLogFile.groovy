@@ -29,7 +29,6 @@ class dealLogFile {
                 println("cp /home/qic/${fileName} ${filepath.replace("${fileName}","")}")
 
             }
-
         }
     }
 

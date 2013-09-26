@@ -13,7 +13,12 @@ class RoleTools {
         println("1")
     }
 
-
+/**
+ * 创建角色/初始化角色
+ * @param name
+ * @param property
+ * @return
+ */
     static createRole(def name ,def property){
         def role=[:];
         if(name==null){
@@ -40,6 +45,7 @@ class RoleTools {
         role["语言"]=  role["language"]
         role["职业"]=   role["profession"]
         role["种族"]= role["race"]
+       // role["生命值"]= role["race"]
         role["属性修正值"]=property.collect{
             it=["${it}":modifiedValue(role["属性值"][it])]
         }
@@ -55,9 +61,11 @@ class RoleTools {
         return  list[r1.nextInt(list.size())]
     }
 
-
-
-    //计算属性修正值
+    /**
+     * 计算属性修正值
+     * @param v
+     * @return
+     */
     static modifiedValue(int v){
         int n=v/2;
         return n-5;
@@ -76,7 +84,10 @@ class RoleTools {
         }
         return a;
     }
-    //产生一个属性值
+    /**
+     * 产生一个属性值
+     * @return
+     */
     static initproperty(){
         //4 次 1D6  三个最大值取和
         Random r1=new Random();

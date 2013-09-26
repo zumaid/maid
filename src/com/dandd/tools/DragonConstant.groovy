@@ -9,7 +9,7 @@ class DragonConstant {
 
 
     static main(args) {
-        println(RoleTools.createRole())
+        println(RoleTools.createRole(null,null))
     }
 
     //宗族
