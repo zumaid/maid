@@ -12,25 +12,32 @@ import org.openqa.selenium.support.ui.Select
  * Time: 下午9:16
  * To change this template use File | Settings | File Templates.
  */
-class AddProduction extends MyWebDriver{
+class AddProduction extends MyWebDriver {
     static main(args) {
-        def runall="""丝袜 美腿|,2,53,|丝袜
+        while(1){
+            def runall = """丝袜 美腿|,2,53,|丝袜
 时尚气质风衣|,2,17,|风衣
 性感秋装|,2,20,|连衣裙
 女士性感内裤蕾丝透明|,1,23,|女士内裤
 女士性感高帮鞋蕾丝|,4,38,|女士高帮鞋
 丁字裤|,1,23,|女士内裤"""
-        runall.eachLine {
-            run(it)
+            runall.eachLine {
+               try{
+                   run(it)
+               }catch (Exception e){
+                   quit(driver);
+               }
+            }
+            //f5(driver)
+            quit(driver);
         }
-        f5(driver)
-        quit(driver);
     }
-    static run(String it){
+
+    static run(String it) {
 
 
-        def keys=it.tokenize("|")[0];
-        def type=it.tokenize("|")[1]
+        def keys = it.tokenize("|")[0];
+        def type = it.tokenize("|")[1]
 
         WebDriver driver = getDriver();
         login(driver)
