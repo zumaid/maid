@@ -11,7 +11,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 class UpdateNews extends MyWebDriver{
     static main(args) {
-        run()
+       while(true){
+           run()
+           sleep(1000*60*60*24)
+       }
     }
     static  void run(){
         WebDriver driver = getDriver();
