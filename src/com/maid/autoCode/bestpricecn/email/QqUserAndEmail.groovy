@@ -8,7 +8,7 @@ import org.openqa.selenium.By;/**
  * Time: 上午10:10
  * To change this template use File | Settings | File Templates.
  */
-class QqUserAndEmail extends MyWebDriver{
+class QqUserAndEmail extends MyWebDriver {
 
     static main(args) {
         driver.get("http://zc.qq.com/chs/index.html");
@@ -27,19 +27,19 @@ class QqUserAndEmail extends MyWebDriver{
         driver.findElement(By.id("day_value")).click();
         driver.findElement(By.id("day_5")).click();
         //检测是否存在验证码
-        if("".equals(  driver.findElement(By.id("code")).getAttribute("value"))){
+        if ("".equals(driver.findElement(By.id("code")).getAttribute("value"))) {
             println "验证码存在，需要填写"
-            String code="";
-            while(code.length()<4){
-                code=driver.findElement(By.id("code")).getAttribute("value");
+            String code = "";
+            while (code.length() < 4) {
+                code = driver.findElement(By.id("code")).getAttribute("value");
                 sleep(2000)
             }
-        }else{
+        } else {
             //暂时不用处理
         }
         driver.findElement(By.id("submit")).click();
         String aaa = driver.findElement(By.id("newUin")).getText();
-        if(aaa!=null){
+        if (aaa != null) {
             saveMessage "[qq账户信息]" aaa
         }
     }

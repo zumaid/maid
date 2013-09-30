@@ -35,7 +35,7 @@ class MyWebDriver extends BaseEmail {
         println("等待登陆完成")
     }
 
-    static   def f5(driver) {
+    static def f5(driver) {
         driver.get("http://www.bestpricecn.com/index.php/tadmin/make_html");
         driver.findElement(By.xpath("//input[2]")).click();
         driver.findElement(By.id("sbtn")).click();
@@ -59,7 +59,7 @@ class MyWebDriver extends BaseEmail {
         println("操作完成,等待3秒退出。")
     }
 
-    static  def quit(driver) {
+    static def quit(driver) {
         if (driver != null) {
             driver.quit();
         }
