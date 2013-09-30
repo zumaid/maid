@@ -32,8 +32,6 @@ class QqUserAndEmail extends MyWebDriver{
             String code="";
             while(code.length()<4){
                 code=driver.findElement(By.id("code")).getAttribute("value");
-
-
                 sleep(2000)
             }
         }else{
