@@ -1,5 +1,6 @@
 package com.maid.autoCode.bestpricecn
 
+import com.maid.autoCode.bestpricecn.email.BaseEmail
 import org.openqa.selenium.Alert
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeUnit
  * Time: 下午9:09
  * To change this template use File | Settings | File Templates.
  */
-class MyWebDriver {
+class MyWebDriver extends BaseEmail {
     static WebDriver driver = new FirefoxDriver();
 
     def static getDriver() {
