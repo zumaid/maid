@@ -66,7 +66,10 @@ class weibo163 extends MyWebDriver {
         println("这里还是喘口气，别让人家看不起！")
     }
 
-
+/**
+ * 添加粉丝，TODO 未完成
+ * @param times
+ */
     static addFans(int times){
         driver.get("http://t.163.com/3882350330/followers");
         sleep(5000)
