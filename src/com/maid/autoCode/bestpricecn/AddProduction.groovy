@@ -15,12 +15,11 @@ import org.openqa.selenium.support.ui.Select
 class AddProduction extends MyWebDriver {
     static main(args) {
         while (1) {
-            def runall = """丝袜 美腿|,2,53,|丝袜
-时尚气质风衣|,2,17,|风衣
+            //丝袜 美腿|,2,53,|丝袜
+            def runall = """时尚气质风衣|,2,17,|风衣
 性感秋装|,2,20,|连衣裙
-女士性感内裤蕾丝透明|,1,23,|女士内裤
-女士性感高帮鞋蕾丝|,4,38,|女士高帮鞋
-丁字裤|,1,23,|女士内裤"""
+女内裤蕾丝透明|,1,23,|女士内裤
+高帮鞋蕾丝|,4,38,|女士高帮鞋"""
             runall.eachLine {
                 try {
                     run(it)

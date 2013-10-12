@@ -1,6 +1,10 @@
 package com.maid.autoCode.bestpricecn.weibo
 
 import com.maid.autoCode.bestpricecn.MyWebDriver
+import com.maid.autoCode.bestpricecn.net.MeiziTu
+import com.maid.autoCode.bestpricecn.net.Xiaohua
+import org.jsoup.nodes.Element
+import org.jsoup.select.Elements
 import org.openqa.selenium.By;/**
  * Created with IntelliJ IDEA.
  * User: xuping
@@ -12,14 +16,25 @@ class weibo163 extends MyWebDriver {
 
     static main(args) {
 
-        login()
+       login()
 
-//        say("http://t.163.com/3882350330","今天天气错了。")
-//        say("http://t.163.com/3882350330","明天十一了，回家看爸妈了。")
-//
 //        sayWithImg("http://t.163.com/3882350330","今天天气错了。",saveImg("http://f.hiphotos.baidu.com/image/q%3D100%3Ba0%3D+%2C1%2C1/sign=ca6b41cb7b310a55c224daf4877e2299/8b13632762d0f703acd24ee40afa513d2697c5a2.jpg"))
-      //  sayWithImg("http://t.163.com/3882350330","这个太那个啥啥啥了。",saveImg("http://f.hiphotos.baidu.com/album/w%3D2048/sign=4270d74186d6277fe91235381c001e30/4e4a20a4462309f75523eee8730e0cf3d6cad6f8.jpg"))
-        addFans(1000)
+        //sayWithImg("http://t.163.com/3882350330","屌丝的春天。",saveImg("http://h.hiphotos.baidu.com/image/q%3D100%3Ba0%3D+%2C1%2C1/sign=72c92ef2ad51f3dec5b2bd64a4d5912f/9e3df8dcd100baa122cea1834510b912c8fc2e2c.jpg"))
+        //    addFans(1000)
+
+        //读取baidu的图片
+
+        def meizi= MeiziTu.allImageurl();
+        println meizi
+        int i=0;
+        Xiaohua.xiaohua().each{
+                if(meizi.size()>i){
+                    sayWithImg("http://t.163.com/bestpricecn",it,saveImg("${meizi[i]}"))
+                    i=i+1;
+                }
+        }
+
+
         quit(driver)
     }
 
