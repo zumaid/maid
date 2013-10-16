@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select
  */
 class AddProduction extends MyWebDriver {
     static main(args) {
-        while (1) {
+
             def runall = """丝袜 美腿|,2,53,|丝袜
 时尚气质风衣|,2,17,|风衣
 性感秋装|,2,20,|连衣裙
@@ -98,8 +98,7 @@ T恤|,52,3,26,|T恤
             }
             //f5(driver)
             quit(driver);
-            sleep(1000 * 60 * 60 * 5)
-        }
+
     }
 
     static run(String it) {
