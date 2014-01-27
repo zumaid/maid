@@ -25,7 +25,7 @@ class BaseEmail extends BaseNet {
 		email.setCharset("utf-8");
 		email.addTo(to, "黑姬");
 		email.setFrom("zu-q@163.com", "xuping");
-		email.setAuthentication("zu-q", "seedcat");
+		email.setAuthentication("zu-q", "aaa");
 		email.setSubject(subject);
 		email.setMsg(msg);
 		email.send();
