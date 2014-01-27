@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
+	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
+	<classpathentry kind="lib" path="lib/postgresql-9.1-901-1.jdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/gmongo-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/mongo-2.10.1.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.26.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.7.2.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-2.32.0.jar"/>
+	<classpathentry kind="lib" path="lib/mail-1.4.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-email-1.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
