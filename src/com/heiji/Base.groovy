@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document
 import com.gmongo.GMongo
 import com.mongodb.gridfs.GridFS
 import com.mongodb.gridfs.GridFSInputFile
+import com.tools.HttpUtils
 
 class Base {
 
@@ -17,9 +18,9 @@ class Base {
 		def GridFS myFS = new GridFS(db);
 		def path="C:\\AAAAAA_pic"
 	 
-		for(int it=585;it<1037;it++){
-			def url="http://jandan.net/ooxx/page-${it}#comments"
-			println "${url}开始处理"
+		for(int it=1011;it<1037;it++){
+			def url="http://jandan.net/ooxx/page-${it}#comments" 
+			println url
 			readUrlImage( url,path,myFS);
 		}
 	}
@@ -27,10 +28,9 @@ class Base {
 
 	static readUrlImage(url,path,myFS){
 		try{
-			Document  doc = Jsoup.connect(url)
-			.userAgent("Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
-			.referrer("www.google.com")
-			.timeout(3000).get()
+			String html = HttpUtils.get(url.toString());
+			Document  doc =   Jsoup.parse(html);
+			 
 			doc.getElementsByTag("img").each{
 				if(it.attr("abs:src")!=""){
 					def name ="${System.currentTimeMillis()}.jpg"
@@ -42,8 +42,7 @@ class Base {
 			println e
 		}
 	}
-	/**
-	 * 保存网络资源
+	/** 
 	 * @param path
 	 * @param name
 	 * @param address
@@ -53,8 +52,7 @@ class Base {
 		new File("${path}/${name}").withOutputStream { out ->
 			out << new URL(address).openStream()
 		}
-		if(!getImageInfo(path,name,200,200)){
-			println "删除像素低的图片"
+		if(!getImageInfo(path,name,200,200)){ 
 			new File("${path}/${name}").delete();
 		}
 	}
@@ -63,23 +61,21 @@ class Base {
 		new File("${path}/${name}").withOutputStream { out ->
 			out << new URL(address).openStream()
 		}
-		if(!getImageInfo(path,name,200,200)){
-			println "删除像素低的图片"
+		if(!getImageInfo(path,name,200,200)){ 
 			new File("${path}/${name}").delete();
 		}else{
 			saveFileToMongodb(path,name,myFS)
 		}
 	}
-	/**
-	 * 保存文件到，mongodb
+	/** 
 	 * @param path
 	 * @param name
 	 * @param myFS
 	 * @return
 	 */
 	static saveFileToMongodb(path,name,myFS){
-		if(myFS.find(name).size()>0){
-			println "已经存在 ${name}"
+		if(myFS.find(name).size()>0){ 
+			
 		}else{
 			File f =new File("${path}\\${name}");
 			if(f.isFile()){
@@ -94,7 +90,7 @@ class Base {
 
 		def img = ImageIO.read(new File("${path}\\${name}"));
 
-		println img.getWidth() +"|||" +img.getHeight()
+		//println img.getWidth() +"|||" +img.getHeight()
 		if(w!=0){
 			if(h!=0){
 				return img.getWidth()>w && img.getHeight()>h
