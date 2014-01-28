@@ -16,7 +16,8 @@ class Base {
 		def    db = mongo.getDB("zuaamaid")
 		def GridFS myFS = new GridFS(db);
 		def path="C:\\AAAAAA_pic"
-		1037.times {
+	 
+		for(int it=585;it<1037;it++){
 			def url="http://jandan.net/ooxx/page-${it}#comments"
 			println "${url}开始处理"
 			readUrlImage( url,path,myFS);
@@ -26,7 +27,10 @@ class Base {
 
 	static readUrlImage(url,path,myFS){
 		try{
-			Document  doc = Jsoup.connect(url).timeout(8000).get()
+			Document  doc = Jsoup.connect(url)
+			.userAgent("Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
+			.referrer("www.google.com")
+			.timeout(3000).get()
 			doc.getElementsByTag("img").each{
 				if(it.attr("abs:src")!=""){
 					def name ="${System.currentTimeMillis()}.jpg"
@@ -35,6 +39,7 @@ class Base {
 				}
 			}
 		}catch(e){
+			println e
 		}
 	}
 	/**
