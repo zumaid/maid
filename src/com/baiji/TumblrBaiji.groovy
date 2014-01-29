@@ -12,14 +12,16 @@ class TumblrBaiji extends Baiji {
 	 
 		def   mongo = new GMongo("127.0.0.1:27017")
 		def    db = mongo.getDB("zuaamaid")
-		def GridFS myFS = new GridFS(db,"tumblr/femalesofdesire");
+		def bname="femalesofdesire"
+		def GridFS myFS = new GridFS(db,"tumblr/${bname}");
+		
 		Gson _gson = new Gson();
 
 		TumblrShengling _LofterShengling=new TumblrShengling();
 
 		//init   http://femalesofdesire.tumblr.com/
 
-		//db.tumblrList.insert([link:"http://femalesofdesire.tumblr.com/"])
+		 db.tumblrList.insert([link:"http://girlsfactory.tumblr.com/"])
 
 
 		def  tumbleListOne = null;
@@ -34,6 +36,7 @@ class TumblrBaiji extends Baiji {
 			ling.setLevel(1);
 			_LofterShengling.getAllUrl(ling).each{
 				if(it.level==-1){
+				 
 					if(saveListLink(db,"tumblrContent",it)){
 						print "!"
 						getFileAndSave(it.link,myFS ,_gson.toJson(it))

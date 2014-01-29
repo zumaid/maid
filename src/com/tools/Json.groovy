@@ -27,7 +27,7 @@ class Json {
 	static Map<String, String> toMap(Object data){
 		Gson _gson = new Gson();
 		try{
-			return ; parseData(_gson.toJson(data));
+			return   parseData(_gson.toJson(data));
 		}catch(e){
 			return null;
 		}

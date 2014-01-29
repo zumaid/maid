@@ -62,7 +62,7 @@ class Base {
 		return 10;
 	}
 	def readUrl(String url){
-		return HttpUtils.get(url.toString());
+		return HttpUtils.get(url.toString().replace(" ", ""));
 	}
 
 	def readUrlForImage(url){

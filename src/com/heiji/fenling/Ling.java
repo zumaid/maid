@@ -8,11 +8,7 @@ public class Ling {
 
 	 
 	//链接
-	public String link;
-	//名字，简单说明
-	public String name;
-	//唯一id
-	public String id;
+	public String link=""; 
 	//级别
 	public int level;
 	//是否是最终的页面，是：true，是列表页面：false
@@ -30,18 +26,8 @@ public class Ling {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+ 
+ 
 	public int getLevel() {
 		return level;
 	}

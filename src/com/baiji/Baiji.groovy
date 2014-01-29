@@ -23,11 +23,16 @@ class Baiji {
 			print "-"
 			return false;
 		}else{
-			db."${table}".insert(Json.toMap(message))
-			return true;
+
+			try{
+				db."${table}".insert(Json.toMap(message))
+				return true;
+			}catch(e){
+				return false;
+			}
 		}
 	}
-	static getFileAndSave(path,name,address,myFS,w,h,message){ 
+	static getFileAndSave(path,name,address,myFS,w,h,message){
 		try{
 			new File("${path}/${name}").withOutputStream { out ->
 				out << new URL(address).openStream()
