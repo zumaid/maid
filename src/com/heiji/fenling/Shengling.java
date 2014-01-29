@@ -1,7 +1,11 @@
 package com.heiji.fenling;
 
 import java.util.List;
-
+/**
+ * 用来剥离网络资源
+ * @author zu
+ *
+ */
 public interface   Shengling {
  
 	//获取所有URL

@@ -48,8 +48,7 @@ class Base {
 	static readUrlImage(url,path,myFS){
 		try{
 			String html = HttpUtils.get(url.toString());
-			Document  doc =   Jsoup.parse(html);
-
+			Document  doc =   Jsoup.parse(html); 
 			doc.getElementsByTag("img").each{
 				if(it.attr("abs:src")!=""){
 					def name ="${System.currentTimeMillis()}.jpg"
