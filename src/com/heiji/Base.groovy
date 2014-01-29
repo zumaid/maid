@@ -25,6 +25,14 @@ class Base {
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 
 	static getMongodb(GridFS myFS ,root){ 
 		def   mongo = new GMongo("127.0.0.1:27017")
@@ -53,6 +61,9 @@ class Base {
 			println e
 		}
 	}
+	
+	
+	
 	static downloadFile(path,name,address){
 		new File("${path}/${name}").withOutputStream { out ->
 			out << new URL(address).openStream()
