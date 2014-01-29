@@ -12,7 +12,7 @@ class TumblrBaiji extends Baiji {
 	 
 		def   mongo = new GMongo("127.0.0.1:27017")
 		def    db = mongo.getDB("zuaamaid")
-		def bname="femalesofdesire"
+		def bname="b-vu"
 		def GridFS myFS = new GridFS(db,"tumblr/${bname}");
 		
 		Gson _gson = new Gson();
@@ -21,7 +21,7 @@ class TumblrBaiji extends Baiji {
 
 		//init   http://femalesofdesire.tumblr.com/
 
-		 db.tumblrList.insert([link:"http://girlsfactory.tumblr.com/"])
+		 db.tumblrList.insert([link:"http://${bname}.tumblr.com/"])
 
 
 		def  tumbleListOne = null;
