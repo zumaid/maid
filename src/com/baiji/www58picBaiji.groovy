@@ -2,41 +2,38 @@ package com.baiji
 
 import com.gmongo.GMongo
 import com.google.gson.Gson
-import com.heiji.fenling.Ling
-import com.heiji.fenling.TumblrShengling
+import com.heiji.fenling.Ling 
 import com.mongodb.gridfs.GridFS
 
-class TumblrBaiji extends Baiji {
+class www58picBaiji extends Baiji {
 
 	static main(args) {
-	 
+
 		def   mongo = new GMongo("127.0.0.1:27017")
 		def    db = mongo.getDB("zuaamaid")
-		def bname="femalesofdesire"
-		def GridFS myFS = new GridFS(db,"tumblr/${bname}");
-		
+		def bname="www.58pic.comshiliangtu"
+		def GridFS myFS = new GridFS(db,"${bname}");
+
 		Gson _gson = new Gson();
 
-		TumblrShengling _LofterShengling=new TumblrShengling();
+		com.heiji.fenling.Shengling _shengling=new com.heiji.fenling.Www58picShengling();
 
-		//init   http://femalesofdesire.tumblr.com/
-
-		 db.tumblrList.insert([link:"http://${bname}.tumblr.com/"])
-
-
+		db."${bname}List".drop()
+		200.times {
+			db."${bname}List".insert([link:"http://www.58pic.com/shiliangtu/0/id-1${it+1}.html"])
+		}
 		def  tumbleListOne = null;
-		tumbleListOne =db.tumblrList.findOne([state:null ]);
+		tumbleListOne =db."${bname}List".findOne([state:null ]);
 
 		while(tumbleListOne!=null){
-			print "."
+			print "${tumbleListOne}"
 			tumbleListOne.state=1
-			db.tumblrList.save tumbleListOne
+			db."${bname}List".save tumbleListOne
 			Ling ling =new Ling()
 			ling.setLink("${tumbleListOne.link}")
 			ling.setLevel(1);
-			_LofterShengling.getAllUrl(ling).each{
+			_shengling.getAllUrl(ling).each{
 				if(it.level==-1){
-				 
 					if(saveListLink(db,"tumblrContent",it)){
 						print "!"
 						getFileAndSave(it.link,myFS ,_gson.toJson(it))
@@ -45,13 +42,11 @@ class TumblrBaiji extends Baiji {
 					}
 				}else{
 
-					saveListLink(db,"tumblrList",it)
+					saveListLink(db,"${bname}List",it)
 				}
 			};
-
-
 			tumbleListOne = null;
-			tumbleListOne =db.tumblrList.findOne([state:null ]);
+			tumbleListOne =db."${bname}List".findOne([state:null ]);
 		}
 	}
 }
