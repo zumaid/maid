@@ -16,7 +16,7 @@ class PgToMongodb {
 		//		def   mongo = new GMongo("192.168.3.140:27017")
 		//		def    db = mongo.getDB("pm")
 		//从旧表遍历产品
-		db.product.find([  "product_list_size" : [$ne: 1]  ]).each {
+		db.product.find().each {
 			//新表中查询结果
 			def product=[model_name:"${it.model_name}", brand_name:"${it.brand_name}", shop_id:"${it.shop_id}",id:"${it.id}"]
 			def r=db.product_new.find([model_name:"${it.model_name}", brand_name:"${it.brand_name}", shop_id:"${it.shop_id}"])
@@ -28,7 +28,10 @@ class PgToMongodb {
 		}
 
 	}
-
+//[  "product_list_size" : [$ne: 1]  ]
+	
+	
+	
 	//	static saveObj(dbname,product){
 	//		Thread.start {
 	//			db."${dbname}".insert product
