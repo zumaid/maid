@@ -1,11 +1,9 @@
 package com.heiji
 
+import org.apache.commons.mail.HtmlEmail
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
-import com.gmongo.GMongo
-import com.mongodb.gridfs.GridFS
-import com.mongodb.gridfs.GridFSInputFile
 import com.tools.HttpUtils
 
 class Lushichuanshuo extends Base {
@@ -13,32 +11,17 @@ class Lushichuanshuo extends Base {
 	static main(args) {
 
 
-		def   mongo = new GMongo("127.0.0.1:27017")
-		def    db = mongo.getDB("zuaamaid")
-		GridFS myFS = new GridFS(db,"lushichuanshuo");
+		//		def   mongo = new GMongo("127.0.0.1:27017")
+		//		def    db = mongo.getDB("zuaamaid")
+		//		GridFS myFS = new GridFS(db,"lushichuanshuo");
 
 		37.times { tims->
 			def l=readUrlImage("http://hs.tgbus.com/db/?classname=&Page=${tims}");
 			l.each {
 				def name="${it["name"]}.jpg";
-				def address="${it["url"].trim()}"
-				if(myFS.find(name).size()>0){
-				}else{
-					if(address.length()>0){
-						try{
-							InputStream a=null;
-							a=new URL(address).openStream();
-							if(a!=null){
-								GridFSInputFile inputFile = myFS.createFile(a, name);
-								inputFile.setFilename(name);
-								inputFile.put("info",it)
-								inputFile.save();
-							}
-						}
-						catch(e){
-						}
-					}
-				}
+				def address="${it["url"].trim()}" 
+				sendEmail(name,address) 
+				sleep(10000);
 			}
 		}
 	}
@@ -61,5 +44,18 @@ class Lushichuanshuo extends Base {
 		}catch(e){
 			println e;
 		}
+	}
+
+
+	static String sendEmail(String subject, String msg) {
+		HtmlEmail email = new HtmlEmail();
+		email.setHostName("smtp.163.com");
+		email.setCharset("utf-8");
+		email.addTo("zu-q@163.com", "黑姬");
+		email.setFrom("zuaa-q@163.com", "xuping");
+		email.setAuthentication("zuaa-q", "seedcat");
+		email.setSubject(subject);
+		email.setMsg(msg);
+		email.send();
 	}
 }

@@ -1,4 +1,4 @@
-package com.maid.autoCode.bestpricecn.email
+package com.tools
 
 import com.maid.autoCode.bestpricecn.net.BaseNet;
 /**
@@ -24,8 +24,8 @@ class BaseEmail extends BaseNet {
 		email.setHostName("smtp.163.com");
 		email.setCharset("utf-8");
 		email.addTo(to, "黑姬");
-		email.setFrom("zu-q@163.com", "xuping");
-		email.setAuthentication("zu-q", "aaa");
+		email.setFrom("zuaa-q@163.com", "xuping");
+		email.setAuthentication("zuaa-q", "seedcat");
 		email.setSubject(subject);
 		email.setMsg(msg);
 		email.send();

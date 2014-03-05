@@ -1,6 +1,7 @@
 package com.maid.autoCode.bestpricecn
 
-import com.maid.autoCode.bestpricecn.email.BaseEmail
+import com.tools.BaseEmail;
+
 import org.openqa.selenium.Alert
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
